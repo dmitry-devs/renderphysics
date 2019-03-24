@@ -1,0 +1,273 @@
+body {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    height: auto;
+    overflow: auto;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
+}
+
+html {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    height: auto;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    &__wrapper {
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        align-content: stretch;
+        height: 100%;
+        @include respond-to('medium') {
+            flex-direction: row;
+        }
+        a:hover,
+        a:active,
+        a:focus {
+            outline: none;
+            text-decoration: none;
+            color: $primary-color;
+        }
+        .not-link:hover,
+        .not-link:active,
+        .not-link:focus {
+            cursor: default;
+            color: inherit;
+        }
+    }
+    &__sidebar {
+        @include respond-to('medium') {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            /* padding-top: 50px;*/
+            min-height: 100%;
+            flex: 0 0 100px;
+            flex-wrap: wrap;
+            align-self: stretch;
+            z-index: 11;
+        }
+    }
+    &__main {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+        @include respond-to('medium') {
+            width: calc(100% - 380px);
+        }
+    }
+
+    &__content {
+        flex: 1 0 auto;
+        background-color: $grey-lighter;
+    }
+    .content-wrapper {
+        margin-left: 0;
+        min-height: auto;
+        background-color: transparent;
+    }
+}
+
+.content {
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    height: 100%;
+    > .el-loading-mask {
+        margin-top: 8px;
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        height: 100%;
+        flex-direction: column;
+
+        @include respond-to('large') {
+            flex-direction: row;
+        }
+    }
+    &__wrapper-main {
+        flex-grow: 1;
+        background-color: #fafafa;
+
+        .el-loading-mask {
+            background-color: #fafafa;
+        }
+
+        @include respond-to('medium') {
+            padding: 15px 40px;
+        }
+        &--sm {
+            padding: 15px 20px;
+            order: 1;
+            @include respond-to('medium') {
+                order: 0;
+                max-width: 100%;
+                padding: 15px 40px;
+            }
+            @include respond-to('large') {
+                padding: 60px 120px;
+            }
+        }
+
+        &--no-padding {
+            padding: 15px 0;
+            @include respond-to('medium') {
+                order: 0;
+                max-width: 100%;
+                padding: 15px 40px;
+            }
+            @include respond-to('large') {
+                padding: 60px 120px;
+            }
+        }
+    }
+    &__main {
+        flex-grow: 1;
+        background-color: $grey-lighter;
+        position: relative;
+        padding-bottom: 50px;
+        order: 1;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: 100%;
+
+        @include respond-to('medium') {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        @include respond-to('large') {
+            order: 0;
+        }
+        > .el-loading-mask {
+            background-color: $grey-lighter;
+        }
+    }
+
+    &__aside {
+        width: 100%;
+        background-color: #fff;
+        border-left: 1px solid $grey-light;
+        order: 0;
+        @include respond-to('large') {
+            max-width: 400px;
+        }
+    }
+
+    &__container {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin: 0 auto;
+        width: 100%;
+        @include respond-to('medium') {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        &--sm {
+            padding-left: 0;
+            padding-right: 0;
+
+            @include respond-to('medium') {
+                max-width: 100%;
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            @include respond-to('large') {
+                padding: 40px 0 0;
+                max-width: 515px;
+            }
+        }
+        &--md {
+            padding-left: 0;
+            padding-right: 0;
+
+            @include respond-to('medium') {
+                max-width: 100%;
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            @include respond-to('large') {
+                padding: 0 0 40px 0;
+                max-width: 625px;
+            }
+        }
+
+        &--left {
+            margin-left: 0;
+            padding-top: 0;
+            padding-left: 0;
+        }
+    }
+    &__center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+    &__title {
+        margin-bottom: 40px;
+    }
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    &__menu-item {
+        padding: 25px 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: $secondary-color;
+        display: flex;
+        align-items: center;
+        position: relative;
+        &:not(:last-child) {
+            border-bottom: 1px solid #e9e9e9;
+        }
+        &:hover,
+        &.router-link-active {
+            color: $primary-color;
+            svg {
+                fill: currentColor;
+            }
+            &:after {
+                border-color: $primary-color;
+            }
+        }
+        svg {
+            margin-right: 20px;
+            fill: #afbdc4;
+        }
+        @include respond-to('large') {
+            padding: 30px 0;
+        }
+        &--active {
+            color: $primary-color;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: calc(50% - 4px);
+            border-width: 0 1px 1px 0;
+            border-style: solid;
+            border-color: #000;
+            padding: 4px;
+            transform: rotate(-45deg);
+        }
+    }
+}

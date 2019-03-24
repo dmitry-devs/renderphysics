@@ -1,0 +1,26 @@
+//color
+$primary-color: #f7ec5c;
+$primary-color-light: #ffda7f;
+$secondary-color: #007a78;
+$trietary-color: #465a65;
+$trietary-color-light: #5d7887;
+$grey-light: #e3e3e3;
+$grey-lighter: #fafafa;
+$btn-shadow-color: rgba(0, 0, 0, 0.2);
+
+//breakpoints
+$width-mobile: 270px;
+$width-tablet: 768px;
+$width-desktop: 1180px;
+
+$breakpoints: (
+    'small': (
+        max-width: $width-tablet,
+    ),
+    'medium': (
+        min-width: $width-tablet,
+    ),
+    'large': (
+        min-width: $width-desktop,
+    ),
+);

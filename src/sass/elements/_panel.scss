@@ -1,0 +1,104 @@
+.panel {
+    height: auto;
+    min-height: calc(100vh - 60px);
+    float: left;
+    position: relative;
+    &__options {
+        background: #2d353a;
+        display: flex;
+        align-items: center;
+        width: 350px;
+        z-index: 3;
+        height: auto;
+        min-height: calc(100vh - 0px);
+        position: relative;
+        padding: 0 25px;
+        box-sizing: border-box;
+    }
+    &__title {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.3;
+        margin-bottom: 5px;
+    }
+    &__btn {
+        font-size: 12px;
+        cursor: pointer;
+        color: $primary-color;
+    }
+}
+
+.settings {
+    padding: 2em 0 0;
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: $primary-color;
+    }
+    &__field {
+        margin: 20px 0;
+    }
+    &__button:first-child {
+        margin-right: 20px;
+    }
+}
+
+.button-enter {
+    opacity: 0.01;
+}
+.button-enter.button-enter-active {
+    opacity: 1;
+    transition: opacity 100ms ease-in;
+}
+.button-leave {
+    opacity: 1;
+}
+.button-leave.button-leave-active {
+    opacity: 0.01;
+    transition: opacity 100ms ease-in;
+}
+
+.description {
+    background: #fff;
+    position: absolute;
+    z-index: 2;
+    left: -210px;
+    top: 0;
+    width: 500px;
+    padding: 0 30px !important;
+    height: auto;
+    min-height: 100vh;
+    transition: left 0.7s;
+    &-open {
+        left: 350px !important;
+    }
+    &__back {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+        color: #353e44;
+    }
+    &__content {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+    }
+    &__content-entity {
+        font-size: 12px;
+    }
+    &__content-title {
+        margin-top: 5px;
+        margin-bottom: 25px;
+    }
+    p {
+        line-height: 1.5;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 0;
+        margin-bottom: 14px;
+    }
+}
