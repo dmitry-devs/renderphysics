@@ -5,10 +5,14 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const prod = 'production';
 
 module.exports = (env, argv) => ({
-    entry: './src/js/main.js',
+    entry: {
+        preloader: './src/js/Components/Preloader/Preloader.js',
+        main: './src/js/main.js',
+    },
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: argv.mode === prod ? '[name].[chunkhash].js' : '[name].js'
+        filename: argv.mode === prod ? '[name].[chunkhash].js' : '[name].js',
+        chunkFilename: '[name].js'
     },
     module: {
         rules: [
@@ -45,4 +49,15 @@ module.exports = (env, argv) => ({
     resolve: {
         extensions: ['*', '.js', '.jsx', '.ts', '.tsx', 'scss'],
     },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all'
+                }
+            }
+        }
+    }
 });

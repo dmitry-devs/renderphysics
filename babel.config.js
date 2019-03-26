@@ -1,6 +1,6 @@
 module.exports = {
     presets: [
-        '@babel/preset-env',
+        ['@babel/preset-env',  {modules: false}],
         '@babel/preset-react',
         '@babel/typescript'
     ],
@@ -15,7 +15,7 @@ module.exports = {
                 "transform-es2015-modules-commonjs",
                 "dynamic-import-node",
                 '@babel/plugin-proposal-class-properties',
-                '@babel/proposal-object-rest-spread'
+                '@babel/proposal-object-rest-spread',
             ]
         },
     }

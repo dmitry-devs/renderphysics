@@ -3,12 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Particles</title>
+    <style type="text/css">
+        .preloader{
+            background: #017a77;
+            width: 100%;
+            height: 100vh;
+            max-height: 100vh;
+            position: absolute;
+            z-index: 99;
+            transition: opacity .3s linear; opacity: 1;
+        }
+        .preloader.preloader--hidden {opacity: 0;}
+        .preloader__wrap{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: calc(50% - 120px);
+            left: calc(50% - 120px);
+        }
+        .preloader__text{
+            margin-top: 20px;
+        }
+    </style>
     <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
 </head>
     <body>
+        <div class="preloader">
+            <div class="preloader__wrap">
+                <canvas id="atom" width="240px" height="238px"></canvas>
+                <span class="preloader__text">Loading</span>
+            </div>
+            <script src="<%= htmlWebpackPlugin.files.chunks.preloader.entry %>"></script>
+        </div>
         <div class="app">
             <div id="app" class="app__wrapper"></div>
         </div>
+
+        <script src="<%= htmlWebpackPlugin.files.chunks.vendors.entry %>"></script>
         <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
     </body>
 </html>

@@ -3,6 +3,7 @@ import Canvas from '../../Components/Canvas/Canvas';
 import Panel from '../../Components/Panel/Panel';
 import { Loader } from './Code/Loader';
 import { data } from '../../Store/MotionParticle/Index';
+import {loadingComplete } from '../../Components/Preloader/LoadingComplete';
 
 class MotionParticle extends Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class MotionParticle extends Component {
         this.loader = null;
     }
     componentDidMount() {
+        loadingComplete();
         this.loader = new Loader();
     }
 
