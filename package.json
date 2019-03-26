@@ -6,7 +6,8 @@
         "react": "^16.5.2",
         "react-addons-css-transition-group": "^15.6.2",
         "react-dom": "^16.5.2",
-        "react-scripts": "2.0.5"
+        "react-scripts": "2.0.5",
+        "three": "^0.102.1"
     },
     "scripts": {
         "dev": "webpack --mode development --watch",
@@ -33,7 +34,6 @@
         "regenerator-runtime": "^0.13.1",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.0",
-        "three": "^0.97.0",
         "three-orbit-controls": "^82.1.0",
         "typescript": "^3.1.6",
         "webpack": "^4.20.2",
