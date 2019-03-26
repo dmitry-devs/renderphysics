@@ -39,7 +39,7 @@ export const data = {
         induction: {
             type: 'range',
             typeValue: 'int',
-            label: 'Индукция магнитного поля, 10 <sup>−5</sup> Тл',
+            label: 'Индукция магнитного поля, 10<sup>−5</sup> Тл',
             range: {
                 min: 1,
                 max: 20,
